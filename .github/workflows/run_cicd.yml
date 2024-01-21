@@ -3,8 +3,6 @@ name: testing ci
 on:
   push:
     branches: [ $default-branch ]
-  pull_request:
-    branches: [ $default-branch ]
 
 jobs:
   build:
@@ -12,6 +10,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-
-      - name: Run a one-line script
-        run: echo Hello from Octo Organization
+      - uses: actions/setup-java@v4
+        with:
+            java-version: '21'
+      - run: Variables2.java
